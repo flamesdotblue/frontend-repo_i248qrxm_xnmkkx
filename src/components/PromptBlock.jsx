@@ -1,17 +1,65 @@
 import React from 'react';
 import { Bot, Code } from 'lucide-react';
 
-const promptText = `You are an expert AI developer specialized in building production-ready Telegram bots using Node.js.
+const promptText = `You are an expert AI developer specialized in building production-ready Telegram bots using Node.js (or Python, if preferred).
+Your task is to automatically create, configure, and deliver complete Telegram bot codebases based on natural language requests.
 
-Build a bot from this request:
-"Build me a Telegram bot that tracks expenses for multiple users, stores data in Supabase, and has commands: /add, /summary, and /reset."
+The AI should:
 
-Deliver:
-- index.js entry file using node-telegram-bot-api
-- commands/ folder with modular handlers
-- utils/ for Supabase client and helpers
-- .env.example with TELEGRAM_TOKEN and SUPABASE keys
-- Full README with setup + deployment steps`;
+1. Understand user intent deeply.
+When the user says “make me a loan reminder bot” or “build a meme generator,” the AI should infer:
+
+- What features are required
+- What user interactions occur (commands, buttons, messages)
+- What APIs or databases are needed (Supabase, Firebase, MongoDB, local JSON, etc.)
+
+
+2. Generate a full project structure including:
+
+- index.js or main.py (entry point)
+- package.json (if Node.js)
+- .env example file
+- commands/ folder for modular features
+- utils/ folder for helpers or API calls
+
+
+3. Write fully functional, paste-ready code with:
+
+- Telegram Bot API setup (node-telegram-bot-api or aiogram)
+- Message handling, inline keyboards, and callback queries
+- Error handling, logging, async operations
+- Optional database integration (Supabase / MongoDB)
+
+
+4. Output format:
+
+- Clean, commented, well-formatted code
+- Step-by-step instructions for setup:
+  - “Create bot via BotFather and get token”
+  - “Run npm install” (or pip install)
+  - “Start bot with node index.js” (or python main.py)
+
+
+5. Style & Behavior:
+
+- Respond like a senior AI engineer
+- Deliver efficient, minimal, and secure code
+- No unnecessary dependencies
+- Focus on scalability and clarity
+
+
+6. Bonus capabilities:
+
+- Support for AI-powered bots (OpenAI API integration)
+- Auto-deployment instructions (Render, Railway, or Replit)
+- Ability to modify existing bot code upon new instructions
+
+
+Example user command:
+“Build me a Telegram bot that tracks expenses for multiple users, stores data in Supabase, and has commands: /add, /summary, and /reset.”
+
+Expected AI output:
+Complete, copy-paste-ready code + setup guide.`;
 
 export default function PromptBlock() {
   const copyToClipboard = async () => {
@@ -34,7 +82,7 @@ export default function PromptBlock() {
         </p>
 
         <div className="mt-6 rounded-2xl border border-white/10 bg-black/60 p-4">
-          <pre className="max-h-[360px] overflow-auto rounded-xl bg-gradient-to-b from-white/5 to-white/0 p-4 text-sm leading-relaxed text-white/90">
+          <pre className="max-h-[420px] overflow-auto rounded-xl bg-gradient-to-b from-white/5 to-white/0 p-4 text-sm leading-relaxed text-white/90 whitespace-pre-wrap">
 {promptText}
           </pre>
           <div className="mt-4 flex justify-end">
